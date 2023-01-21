@@ -1,0 +1,209 @@
+﻿/*declaración de variables en css*/
+:root{
+    --main-color: #0a3871;
+    --main-back: #F3F5FC;
+    --texto-especial: #495057;
+    --backdesencriptar: #D8DFE8;
+    --colorencriptar: #EFF1FA;
+    --colorsombra: black;
+}
+*{    
+    background: var(--main-back);
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+/*Titulo principal*/
+.encabezado{
+    text-align: center;
+    font-size: 45px;
+    font-weight: 800;   
+    color: var(--main-color);
+    position: relative;
+    text-shadow: 10px 44px 52px -15px var(--colorsombra);
+    margin: auto;
+}
+
+/*Logo tema oscuro*/
+.darkmode{ 
+    background: var(--main-back);
+    width: 50px;   
+    height: 50px;
+    position: absolute;
+    right: 25px;
+    top: 15px;    
+    border-radius: 15px;
+    transition: 1s all; 
+    background-image: url(imagenes/dark.png);   
+}
+.darkmode:hover{
+    transform: scale(1.1);
+}
+/*Logo alura*/
+.logo{
+    padding-top: 10px;
+    margin-left: 10px;
+    width: 10%;
+    flex-grow: 2;
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    right: 37.43%;    
+}
+main{
+    display: flex;
+    margin-bottom: 30px;
+    margin-left: 250px;
+    height: 80%;   
+}
+/*Caja de entrada de texto*/
+.entrada{        
+    margin-top: 60px;
+    border: none;      
+    color: var(--main-color); 
+    text-transform: lowercase;
+    resize: none;  
+}
+::placeholder{ color: var(--main-color);}
+    .entrada:focus {
+        outline: none;
+    }
+/*Caja salida texto encriptado*/
+.salida{
+    flex-grow: 6;
+    background: white;
+    margin-left: 160px;
+    margin-top: 10px;
+    padding-left: 20px;
+    position: absolute;
+    box-shadow: 0px 24px 32px -8px var(--colorsombra);
+    border-radius: 32px;
+    border: none;
+    resize: none;
+    background-image:  url(imagenes/Muñeco.png);
+    background-position: center;
+    height: 88%;    
+    background-repeat: no-repeat;
+}
+.salida:focus{
+    outline: none;
+}
+/*Div Texto que aparece cuando no hay nada ingresado para encriptar*/
+.vacio{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    position: absolute;
+    background: none;
+    width: 310px;
+    height: 110px;
+    margin-top: 550px;
+    margin-left: 200px;
+}
+/*Texto que aparece cuando no hay nada ingresado para encriptar*/
+.vacio h1{
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 110%;
+    text-align: center;
+    background: white;
+    color: #343A40;
+    flex:none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+/*Texto que aparece cuando no hay nada ingresado para encriptar*/
+.vacio h6{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    color: #495057;
+    background: white;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+/*Div botones*/
+.botones{
+    display: flex;
+    margin-top: 10px; 
+    margin-bottom: auto;    
+}
+/*Boton desencriptar*/
+.btnencriptar{
+    height: 67px;
+    width: 328px;
+    cursor: pointer;
+    border-radius: 24px;
+    background: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: var(--colorencriptar);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 19px;        
+}
+/*Boton desencriptar*/
+.btndesencriptar{
+    height: 67px;
+    width: 328px;
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    border-radius: 24px;
+    margin-left: 40px;
+    color: var(--main-color);    
+    background: var(--backdesencriptar);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 19px;    
+    text-align: center;
+}
+/*Botón copiar*/
+.btncopiar{
+    display: none;
+    border: 1px solid var(--main-color);
+    border-radius: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 19px;    
+    text-align: center;
+    color: var(--main-color);
+    cursor: pointer;
+    height: 67px;
+    width: 336px;
+    margin-top: 593px;
+    margin-left: 190px;
+    position: absolute;
+    align-items: flex-end;
+}
+/*Advertencia entrada de texto a encriptar o desencriptar*/
+.requerimientos{
+    margin: auto;
+    font-size: 18px;
+    color: var(--texto-especial);
+}
+/*Simbolo exclamacion en requerimientos*/
+.material-symbols-rounded {
+  font-variation-settings:  
+  'FILL' 1,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 60
+}
+.creditos{    
+    position: absolute;
+    font-size: 15px;
+    margin-top: 22px;
+    left: 50%;
+    color: var(--main-color);
+}
+/*.oscuro{
+    color: #F3F5FC;
+    background-color: #0A3871;
+}*/
+
