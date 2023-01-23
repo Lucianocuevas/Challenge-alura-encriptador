@@ -2,8 +2,7 @@
 
 <html lang="es">     
     <head>
-        <meta charset="UTF-8">
-        
+        <meta charset="UTF-8">        
         <title>Encriptador de texto</title>        
         <link rel="stylesheet" href="Style.css">        
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -18,7 +17,7 @@
         </header>        
         <main>                                  
             <section>
-                <textarea class="entrada" cols="40" rows="10" placeholder="Ingrese aquí el texto"></textarea>
+                <textarea class="entrada" cols="40" rows="10" placeholder="Ingrese aquí el texto" ></textarea>
                 <div>
                     <h6 class="requerimientos"><span class="material-symbols-rounded">
                         error
@@ -30,8 +29,7 @@
                 </div>                                
             </section>                
             <section>
-                <textarea class="salida" cols="20" rows="14" readonly></textarea>                
-                
+                <textarea class="salida" cols="25" rows="14" readonly></textarea>                     
             </section>  
             <section>
                 <div class="vacio">
@@ -70,16 +68,24 @@
     //logo tema oscuro
     var darkmode = document.querySelector(".darkmode");
     let dark = true;
+    const acento = /([\u0000-\u0019\u0021-\u002f\u003a-\u0060\u007b-\uFFFF])/gu;
     
     /*función que encripta o desencripta*/
-    function reemplazo(mensaje, primero, segundo){        
-        for(let i=0;i <= original.length;i++){
-            if (mensaje.includes(primero[i])){
-                mensaje = mensaje.replaceAll(primero[i], segundo[i]);
-            }            
-        }            
-        salida.value = mensaje;
-        return mensaje;
+    function reemplazo(mensaje, primero, segundo){ 
+        let valido = true; 
+        mensaje = mensaje.toLowerCase();
+        if (mensaje.match(acento)){
+            alert("No amigo letras minusculas y/o numeros");            
+        } 
+        else{
+            for(let i=0;i <= original.length;i++){
+                if (mensaje.includes(primero[i])){
+                    mensaje = mensaje.replaceAll(primero[i], segundo[i]);
+                }
+            }
+            salida.value = mensaje;
+            return mensaje;            
+        }           
     }
     /*encriptando*/
     function encriptar(){  
@@ -103,6 +109,14 @@
     function copiar(){
         navigator.clipboard.writeText(salida.value);       
     }
+    function comprobar(){
+        
+        mensaje = mensaje.toLowerCase();
+        if (mensaje.match(acento)){            
+            valido = false;
+        } 
+        return valido;       
+    }
     //cambiando a modo oscuro o volviendo atras
     function modo(){ 
         var color = [["--main-color","#0A3871","#F3F5FC"],["--main-back","#F3F5FC","#3B3B3B"],["--texto-especial","#495057","#F3F5FC"],["--backdesencriptar","#D8DFE8","#000000"],["--colorencriptar","#EFF1FA","#495057"],["--colorsombra","#000000","#F3F5FC"]];      
@@ -111,18 +125,22 @@
             for(let i=0;i < color.length;i++){
                 document.documentElement.style.setProperty(color[i][0], color[i][2]);
             }
-           
+            if (salida.value == ""){
+                salida.style.backgroundImage = "url(imagenes/munecodark.png)";                
+            } 
+
             darkmode.style.backgroundImage = "url(imagenes/light.png)";
-            document.querySelector(".logo").src="imagenes/Logodark.png";
-            salida.style.backgroundImage = "url(imagenes/munecodark.png)";
+            document.querySelector(".logo").src="imagenes/Logodark.png";            
         }
         else{
             for(let i=0;i < color.length;i++){
                 document.documentElement.style.setProperty(color[i][0], color[i][1]);
             }
+            if (salida.value == ""){
+                salida.style.backgroundImage = "url(imagenes/Muñeco.png)";                
+            } 
             darkmode.style.backgroundImage = "url(imagenes/dark.png)";            
-            document.querySelector(".logo").src="imagenes/Logo.png";
-            salida.style.backgroundImage = "url(imagenes/Muñeco.png)";
+            document.querySelector(".logo").src="imagenes/Logo.png";            
             dark = true;            
         }
     }

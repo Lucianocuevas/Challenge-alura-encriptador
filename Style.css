@@ -25,7 +25,6 @@
     text-shadow: 10px 44px 52px -15px var(--colorsombra);
     margin: auto;
 }
-
 /*Logo tema oscuro*/
 .darkmode{ 
     background: var(--main-back);
@@ -36,7 +35,8 @@
     top: 15px;    
     border-radius: 15px;
     transition: 1s all; 
-    background-image: url(imagenes/dark.png);   
+    background-image: url(imagenes/dark.png);  
+    background-repeat: no-repeat; 
 }
 .darkmode:hover{
     transform: scale(1.1);
@@ -88,6 +88,8 @@ main{
     background-position: center;
     height: 85%;    
     background-repeat: no-repeat;
+    font-size: 0.8em;
+    color: #0a3871;
 }
 .salida:focus{
     outline: none;
@@ -178,8 +180,8 @@ main{
     cursor: pointer;
     height: 67px;
     width: 336px;
-    margin-top: 593px;
-    margin-left: 190px;
+    margin-top: 477px;
+    margin-left: 152px;
     position: absolute;
     align-items: flex-end;
 }
